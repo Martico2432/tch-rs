@@ -384,6 +384,7 @@ impl SystemInfo {
                     .flag(format!("-Wl,-rpath={}", self.libtorch_lib_dir.display()))
                     .flag("-std=c++17")
                     .flag(format!("-D_GLIBCXX_USE_CXX11_ABI={}", self.cxx11_abi))
+                    .flag("/EHsc")
                     .flag("-DGLOG_USE_GLOG_EXPORT")
                     .files(&c_files)
                     .compile("tch");
