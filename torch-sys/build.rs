@@ -400,7 +400,8 @@ impl SystemInfo {
                     .includes(&self.libtorch_include_dirs)
                     .flag("/std:c++17")
                     .flag("/EHsc")
-                    .flag("-DGLOG_USE_GLOG_EXPORT")
+                    .flag("/MD")
+                    .flag("/D GLOG_USE_GLOG_EXPORT")
                     .files(&c_files)
                     .compile("tch");
             }
